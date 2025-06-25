@@ -11,5 +11,8 @@
   "devDependencies": {
     "typescript": "~5.8.3",
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42"
   }
 }
