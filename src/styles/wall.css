@@ -1,5 +1,5 @@
 .wall-body {
-  margin: 0 var(--space-xll) var(--space-sm);
+  margin: 0 var(--space-xxl) var(--space-sm);
   border: var(--border-glass);
   border-radius:var(--radius);
 
@@ -8,7 +8,14 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  word-wrap: break-word;
+
   user-select: text;
+
+  overflow-x: hidden;
 }
 
 .wall-body :is(h1, h2, h3, p) {
@@ -23,6 +30,10 @@
   font-size: var(--space-lg);
 }
 
+.wall-body h2 {
+  padding-top: var(--space-sm)
+}
+
 .wall-body :is(h3, p, li) {
   font-family: Philosopher;
   font-size: var(--space-sm);
@@ -31,7 +42,7 @@
 }
 
 .wall-body h3 {
-  font-size: var(--space-a-sm);
+  font-size: var(--space-asm);
 
 }
 
@@ -39,5 +50,17 @@
   padding: 0 var(--space-md) 0 var(--space-lg);
 }
 
-@media (min-width: 500px) {
+@media (max-width: 480px) {
+  .wall-body {
+    margin: 0 0px var(--space-sm);
+
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    word-wrap: break-word;
+
+    user-select: text;
+
+    overflow-x: hidden
+  }
 }

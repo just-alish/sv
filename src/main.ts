@@ -49,7 +49,9 @@ if (app) {
   app.innerHTML = '';
 
   app.appendChild(createWall('ethos'));
-  app.appendChild(createWall('placeholder'));
+  app.appendChild(createWall('ethos2'));
+  app.appendChild(createWall('ethos3'));
+  // app.appendChild(createWall('placeholder'));
 
   app.appendChild(createCartObject());
   const cartBody = document.querySelector('.cart-body');

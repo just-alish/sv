@@ -3,7 +3,7 @@ import { rotate } from '../utils/rotate';
 import { topFunction } from '../utils/scrollTop';
 import { throttle } from '../utils/throttle';
 import { tiltControl } from './globals';
-import { lenis, startLenis, stopLenis } from '../utils/lenis';
+import { startLenis, stopLenis } from '../utils/lenis';
 
 export function createHeader() {
   function createLogo() {
@@ -11,9 +11,9 @@ export function createHeader() {
     logo.className = 'logo-container';
     const throttledTopFunction = throttle(topFunction, 1000)
     logo.onclick = () => {
-      lenis.stop();
+      stopLenis();
       throttledTopFunction();
-      lenis.start();
+      startLenis();
     };
 
     logo.innerHTML = `
@@ -47,7 +47,8 @@ export function createHeader() {
     const brackets = logo.querySelector('#svbr');
     const smackets = logo.querySelector('#svsmbr');
 
-    logo.addEventListener('mouseenter', async () => {
+    logo.addEventListener('click', async () => {
+      tiltControl.holdOn = true;
       if (brackets instanceof SVGElement && smackets instanceof SVGElement) {
         await rotate(brackets, 360, { duration: 800 });
         await rotate(smackets, 360, { duration: 700 });
@@ -58,6 +59,7 @@ export function createHeader() {
       } else {
         console.error('element not found: #svbr OR #svsmbr')
       }
+      tiltControl.holdOn = false;
     });
 
     return logo;
@@ -84,7 +86,7 @@ export function createHeader() {
           <svg id="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 213">
             <defs>
               <style>
-                .cls-strk{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}
+                .cls-strk{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:8px;}
               </style>
             </defs>
             <path class="cls-strk" d="M150,46a105.2,105.2,0,0,0-12.62.76,71.5,71.5,0,1,1-90.62,90.62A105.2,105.2,0,0,0,46,150,104,104,0,1,0,150,46Z" transform="translate(-43.5 -43.5)"/>
@@ -95,18 +97,18 @@ export function createHeader() {
           <svg id="sun" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
             <defs>
               <style>
-                .cls-sun-strk{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:5px;}
+                .cls-sun-strk{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:8px;}
                 .cls-sun-fill{fill:#000;}
               </style>
             </defs>
             <circle class="cls-sun-strk" cx="105.5" cy="106" r="53.5"/>
-            <rect class="cls-sun-fill" x="103.5" width="5" height="40"/><rect class="cls-sun-fill" x="103.5" y="172" width="5" height="40"/>
-            <rect class="cls-sun-fill" x="208.81" y="69.19" width="5" height="40" transform="translate(80.46 -167.3) rotate(45)"/>
-            <rect class="cls-sun-fill" x="87.19" y="190.81" width="5" height="40" transform="translate(130.84 -45.67) rotate(45)"/>
-            <rect class="cls-sun-fill" x="87.19" y="69.19" width="5" height="40" transform="translate(-81.3 45.54) rotate(-45)"/>
-            <rect class="cls-sun-fill" x="208.81" y="190.81" width="5" height="40" transform="translate(-131.67 167.16) rotate(-45)"/>
-            <rect class="cls-sun-fill" x="62" y="130" width="5" height="40" transform="translate(-130 170.5) rotate(-90)"/>
-            <rect class="cls-sun-fill" x="234" y="130" width="5" height="40" transform="translate(42 342.5) rotate(-90)"/>
+            <rect class="cls-sun-fill" x="103.5" width="8" height="40"/><rect class="cls-sun-fill" x="103.5" y="172" width="8" height="40"/>
+            <rect class="cls-sun-fill" x="208.81" y="69.19" width="8" height="40" transform="translate(80.46 -167.3) rotate(45)"/>
+            <rect class="cls-sun-fill" x="87.19" y="190.81" width="8" height="40" transform="translate(130.84 -45.67) rotate(45)"/>
+            <rect class="cls-sun-fill" x="87.19" y="69.19" width="8" height="40" transform="translate(-81.3 45.54) rotate(-45)"/>
+            <rect class="cls-sun-fill" x="208.81" y="190.81" width="8" height="40" transform="translate(-131.67 167.16) rotate(-45)"/>
+            <rect class="cls-sun-fill" x="62" y="130" width="8" height="40" transform="translate(-130 170.5) rotate(-90)"/>
+            <rect class="cls-sun-fill" x="234" y="130" width="8" height="40" transform="translate(42 342.5) rotate(-90)"/>
           </svg>
         </div>
       </label>

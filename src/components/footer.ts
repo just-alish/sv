@@ -1,6 +1,6 @@
 import '../styles/footer.css';
 import heartMozaic from '../assets/heart-mozaic.svg?raw';
-import bellSound from '../assets/elevator-bell.opus';
+// import bellSound from '../assets/elevator-bell.opus';
 
 export function createFooter() {
   const footer = document.createElement('footer');
@@ -19,7 +19,7 @@ export function createFooter() {
     return footer;
   }
 
-  const bell = new Audio(bellSound);
+  // const bell = new Audio(bellSound);
   let intervalId: number | undefined;
 
   const onMouseEnter = () => {

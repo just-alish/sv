@@ -18,13 +18,14 @@
   --radius: 1rem;
   --glass-tint: #90909010;
 
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-a-sm: 1.5rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 4rem;
-  --space-xll: 6rem;
+  --space-xs: 0.45rem;
+  --space-sm: 0.9rem;
+  --space-asm: 1.35rem;
+  --space-md: 1.8rem;
+  --space-lg: 2.7rem;
+  --space-xl: 3.6rem;
+  --space-xxl: 5.4rem;
+  --space-xxxl: 8.1rem;
 }
 
 @media (prefers-color-scheme: light) {
