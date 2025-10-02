@@ -47,7 +47,7 @@ export function createHeader() {
     const brackets = logo.querySelector('#svbr');
     const smackets = logo.querySelector('#svsmbr');
 
-    logo.addEventListener('click', async () => {
+    logo.addEventListener('mouseenter', async () => {
       tiltControl.holdOn = true;
       if (brackets instanceof SVGElement && smackets instanceof SVGElement) {
         await rotate(brackets, 360, { duration: 800 });
