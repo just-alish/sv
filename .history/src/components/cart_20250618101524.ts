@@ -1,0 +1,48 @@
+import '../styles/cart.css';
+
+export function createCartObject() {
+  function createCartBody() {
+    const cart = document.createElement('div');
+    cart.className = 'cart-body';
+
+    cart.innerHTML = `
+      <h1>Placeholder</h1>
+      <p>-----------------------</p>
+      <h3>'OK Computer' $42.00</h3>
+      <p>Radiohead</p>
+      <h3>'OK Computer' $42.00</h3>
+      <p>Radiohead</p>
+      <h3>'OK Computer' $42.00</h3>
+      <p>Radiohead</p>
+    `;
+
+    return cart;
+  }
+
+  function createCartButton() {
+    const cartButton = document.createElement('button');
+    cartButton.className = 'cart-button'
+    cartButton.innerHTML = `cart`;
+
+    return cartButton;
+  }
+
+  const cartContainer = document.createElement('div')
+  cartContainer.className = 'cart-container';
+
+  const cartBody = createCartBody();
+  const cartButton = createCartButton();
+
+  cartContainer.appendChild(cartButton);
+  cartContainer.appendChild(cartBody);
+
+  cartButton.addEventListener('click', () => {
+    cartBody.classList.toggle('visible');
+  });
+
+  cartBody.addEventListener('click', () => {
+    cartBody.classList.toggle('visible');
+  });
+
+  return cartContainer;
+}
