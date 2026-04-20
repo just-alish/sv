@@ -48,27 +48,27 @@ const app = document.querySelector('#app');
 if (app) {
   app.innerHTML = '';
 
-  app.appendChild(createWall('ethos'));
-  app.appendChild(createWall('ethos2'));
-  app.appendChild(createWall('ethos3'));
-  // app.appendChild(createWall('placeholder'));
+  const walls = ['ethos', 'ethos2', 'ethos3'] as const;
+  walls.forEach(s => app.appendChild(createWall(s)));
 
-  app.appendChild(createCartObject());
-  const cartBody = document.querySelector('.cart-body');
-  if (cartBody instanceof HTMLElement) {
-    addSpringTilt(cartBody, {}, tiltControl);
-  }
+  const cart = createCartObject();
+  app.appendChild(cart.element);
+  addSpringTilt(cart.cartBody, {}, tiltControl)
 
   app.appendChild(createPromoObject());
+  const promoBody = document.querySelector('.promo-body');
+  if (promoBody instanceof HTMLElement) {
+    addSpringTilt(promoBody, {}, tiltControl);
+  }
+
+  const footer = createFooter();
+  // app.appendChild(footer.element);
+  const footerContainer = document.querySelector('#footer');
+  if (footerContainer) {
+    footerContainer.appendChild(footer.element);
+  }
 }
-const promoBody = document.querySelector('.promo-body');
-if (promoBody instanceof HTMLElement) {
-  addSpringTilt(promoBody, {}, tiltControl);
-}
-const footer = document.querySelector('#footer');
-if (footer) {
-  footer.appendChild(createFooter());
-}
+
 const everything = document.querySelector('body');
 if (everything) {
   everything.querySelectorAll('button').forEach((button) => {

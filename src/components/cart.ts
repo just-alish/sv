@@ -34,7 +34,7 @@ export function createCartObject() {
   function createCartButton() {
     const cartButton = document.createElement('button');
     cartButton.className = 'cart-button'
-    cartButton.innerHTML = `cart`;
+    cartButton.textContent = `cart`;
 
     return cartButton;
   }
@@ -64,5 +64,8 @@ export function createCartObject() {
   cartButton.addEventListener('click', toggleCart);
   cartBody.addEventListener('click', toggleCart);
 
-  return cartContainer;
+  return {
+    element: cartContainer,
+    cartBody,
+  };
 }

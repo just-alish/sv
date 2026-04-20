@@ -2,7 +2,7 @@ import '../styles/footer.css';
 import heartMozaic from '../assets/heart-mozaic.svg?raw';
 // import bellSound from '../assets/elevator-bell.opus';
 
-export function createFooter() {
+export function createFooter(): { element: HTMLElement } {
   const footer = document.createElement('footer');
   footer.className = 'footer';
 
@@ -16,7 +16,9 @@ export function createFooter() {
   
   if ( !heart ) {
     console.error('element not found: #heart')
-    return footer;
+    return {
+      element: footer
+    };
   }
 
   // const bell = new Audio(bellSound);
@@ -43,5 +45,7 @@ export function createFooter() {
   footer.addEventListener('mouseenter', onMouseEnter);
   footer.addEventListener('mouseleave', onMouseLeave);
 
-  return footer;
+  return {
+    element: footer,
+  };
 }
